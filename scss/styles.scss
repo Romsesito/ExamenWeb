@@ -72,8 +72,7 @@ h1, h2, h3 {
   justify-content: space-between;
   align-items: center;
   padding: 15px 5%; 
-  background-color: $color-background-light;
-  border-bottom: 1px solid #eee; 
+  background-color: $color-background-light;   
 
   &__logo {
     height: 60px; 
@@ -206,13 +205,32 @@ h1, h2, h3 {
   }
 
   &__thumbnails {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    display: flex;
     gap: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+
+    &::-webkit-scrollbar {
+      height: 8px;
+    }
+    &::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: #ccc;
+      border-radius: 4px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: #aaa;
+    }
   }
 
   &__thumbnail {
-    width: 100%;
+    flex: 0 0 auto;
+    width: 23%;
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
@@ -220,6 +238,7 @@ h1, h2, h3 {
     border-radius: 4px;
     cursor: pointer;
     transition: border-color 0.3s ease;
+    scroll-snap-align: start;
 
     &:hover,
     &--active {
