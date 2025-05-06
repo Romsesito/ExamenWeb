@@ -51,7 +51,6 @@ h1, h2, h3 {
   align-items: center;
   padding: 15px 5%;
   background-color: #ffffff;
-  border-bottom: 1px solid #eee;
 }
 .header__logo {
   height: 60px;
